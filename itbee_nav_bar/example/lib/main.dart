@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:itbee_nav_bar/itbee_nav_bar.dart';
 
@@ -22,40 +23,43 @@ class _DemoState extends State<Demo> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          Center(child: Text('Active button is $activeButton',
-            style: const TextStyle(
-              decoration: TextDecoration.none,
-              color: Colors.orange,
-              fontSize: 20,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Bottom navigation', textDirection: TextDirection.ltr,),
+        ),
+        body: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            Center(child: Text('Active button is $activeButton',
+              style: const TextStyle(
+                decoration: TextDecoration.none,
+                color: Colors.orange,
+                fontSize: 20,
+              ),
+            )),
+            NavBar(
+              active: activeButton,
+              onTap: (active, itemName) {
+                setState(() {
+                  activeButton = active;
+                });
+              },
+              children: const [
+                Icons.thumb_up,
+                Icons.link,
+                Icons.share,
+                Icons.notification_important,
+                Icons.home,
+                //     Icons.menu,
+              ],
             ),
-          )),
-          NavBar(
-            onTap: (position, itemName) {
-              changeValue(position);
-            //  print('position $position and name $itemName');
-            },
-            children: const [
-              Icons.thumb_up,
-              Icons.link,
-              Icons.share,
-              Icons.notification_important,
-              Icons.home,
-              //     Icons.menu,
-            ],
-          ),
-        ],
-      ),
+          ],
+        ),
+      )
     );
   }
-
-  void changeValue(int position) {
-    setState(() {
-      activeButton = position;
-    });
-  }
 }
+
+
 
 

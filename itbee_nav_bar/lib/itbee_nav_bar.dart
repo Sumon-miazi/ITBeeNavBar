@@ -2,7 +2,7 @@ library itbee_nav_bar;
 
 import 'package:flutter/material.dart';
 
-typedef OnTap = void Function(int position, String itemName);
+typedef OnTap = void Function(int active, String itemName);
 
 class NavBar extends StatefulWidget {
   final OnTap onTap;
@@ -24,7 +24,7 @@ class NavBar extends StatefulWidget {
     Key? key,
     required this.onTap,
     required this.children,
-    this.active = 0,
+    required this.active,
     this.navBarAlignment = 'bottom',
     this.activeButtonColor = const Color(0xFFFF9800),
     this.activeButtonIconColor,
@@ -48,7 +48,6 @@ class _NavigationWidgetState extends State<NavBar>
   late double buttonNewPosition = 0.0;
   late double curveOldPosition = 0.0;
   late double curveNewPosition = 0.0;
-  late double v = 0.0;
 
   late Animation navPosition =
       Tween(begin: buttonOldPosition, end: buttonNewPosition)
@@ -60,7 +59,6 @@ class _NavigationWidgetState extends State<NavBar>
   @override
   void initState() {
     super.initState();
-
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 300));
     _animation =
@@ -116,7 +114,7 @@ class _NavigationWidgetState extends State<NavBar>
           child: FloatingActionButton(
             backgroundColor: widget.activeButtonColor,
             onPressed: () {
-              print(widget.children[widget.active]);
+              print(widget.active);
             },
             child: ScaleTransition(
               scale: _animation,
@@ -162,15 +160,15 @@ class _NavigationWidgetState extends State<NavBar>
   Widget navigationItems() {
     List<Widget> items = [];
     items.add(Expanded(child: Container()));
-    for (int i = 0; i < widget.children.length; i++) {
+    for (int position = 0; position < widget.children.length; position++) {
       items.add(GestureDetector(
           onTap: () {
-            animation(i);
+            animation(position);
           },
           child: Opacity(
-            opacity: i == widget.active ? _opacity.value : 1,
+            opacity: position == widget.active ? _opacity.value : 1,
             child: Icon(
-              widget.children[i],
+              widget.children[position],
               color: widget.inactiveButtonIconColor,
             ),
           )));
@@ -182,9 +180,9 @@ class _NavigationWidgetState extends State<NavBar>
 
   void animation(int position) {
     widget.active = position;
-    print(widget.active);
     buttonOldPosition = buttonNewPosition;
-    buttonNewPosition = calculateActiveButtonPosition(context) + (widget.curveWidth / 4) -
+    buttonNewPosition = calculateActiveButtonPosition(context) +
+        (widget.curveWidth / 4) -
         widget.activeButtonSize * 0.05;
     curveOldPosition = curveNewPosition;
     curveNewPosition = calculateActiveButtonPosition(context);
