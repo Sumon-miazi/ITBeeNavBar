@@ -1,7 +1,8 @@
 name: itbee_nav_bar
-description: A new Flutter project.
+description: A bottom navigation bar with some animation.
 version: 0.0.1
-homepage:
+author: Suman Miazi<sumonmiazi59@gmail.com>
+homepage: https://github.com/Sumon-miazi/ITBeeNavBar.git
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
