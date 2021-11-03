@@ -1,6 +1,6 @@
 name: itbee_nav_bar
-description: A bottom navigation bar with some animation.
-version: 0.0.1
+description: An animated bottom/top navigation bar with minimal setup.
+version: 0.0.2
 authors:
   - Suman Miazi<sumonmiazi59@gmail.com>
 homepage: https://github.com/Sumon-miazi/ITBeeNavBar.git
