@@ -1,5 +1,5 @@
 ## Demo
-<img src="./assets/bottom.gif?raw=true" width="200px"> <img src="./assets/top.gif?raw=true" width="200px">
+<img src="./itbee_nav_bar/assets/bottom.gif?raw=true" width="200px"> <img src="./itbee_nav_bar/assets/top.gif?raw=true" width="200px">
 
 ## Description
 
