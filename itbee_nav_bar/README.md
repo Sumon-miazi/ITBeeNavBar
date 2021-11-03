@@ -10,18 +10,16 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
+## Demo
 
+![Demo gif-1](./assets/bottom.gif)
+![Demo gif-2](./assets/top.gif)
+
+## Description
+
+You can easily use a bottom or top navigation bar just with a minimal code. To use the NavBar please follow the instruction given below.
 TODO: Put a short description of the package here that helps potential users
 know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
 
 ## Usage
 
