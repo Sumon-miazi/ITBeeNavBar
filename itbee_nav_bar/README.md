@@ -23,7 +23,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 ```
 
 dependencies:
-  itbee_nav_bar: ^0.0.1
+  itbee_nav_bar: ^0.0.2
 
 ```
 
